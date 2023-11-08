@@ -148,3 +148,24 @@ INSERT INTO emergency (emergency_id, emergency_departament_id, heart_rate, pet_i
 VALUES ('f645eb97-41aa-43a5-b1c5-d7c51cb725c1', 'db223b55-b73d-4efe-b7de-5e87f7f5a8f3', 80, '582ff702-4bc1-4ecc-81c6-7fdeaf24f626', 20, 'Emergencia 1', '130/90', 'de0b3914-d05d-400d-804c-71ae2cfb0fac', 38, '21378ada-9845-48b6-8be1-691279f06550', 'active', 'https://www.historiaclinica.com/paciente/3'),
        ('002dddf8-ffed-4ce3-8e3f-1d7543dee8dc', 'db223b55-b73d-4efe-b7de-5e87f7f5a8f3', 90, '45674882-b4e4-4be8-aa66-cad3471bda83', 25, 'Emergencia 2', '140/100', 'de0b3914-d05d-400d-804c-71ae2cfb0fac', 39, '21378ada-9845-48b6-8be1-691279f06550', 'completed', 'https://www.historiaclinica.com/paciente/4');
        
+-- Insertar datos de prueba en la tabla "role"
+INSERT INTO role (role_id, name, description)
+VALUES ('6b60ea5a-78c6-4e47-8808-6f35f57e85d7', 'Medico', 'Descripción del rol 1'),
+       ('90a311d4-b0dc-465b-98ae-9c4a37b712fb', 'Auxiliar veterinario', 'Descripción del rol 2');
+
+-- Insertar datos de prueba en la tabla "permission"
+INSERT INTO permission (permission_id, name, status)
+VALUES ('d9a65a9d-7183-4d3b-8a77-6331ee6b0c4d', 'Permiso 1', true),
+       ('b9b80cbc-622a-453f-a8c5-d363104bd69d', 'Permiso 2', false);
+
+
+-- Insertar datos de prueba en la tabla "assigned_roles"
+INSERT INTO assigned_roles (assigned_roles_id, employee_id, role_id)
+VALUES ('c165d256-4d14-474d-a36f-984660dd8b36', 'de0b3914-d05d-400d-804c-71ae2cfb0fac', '6b60ea5a-78c6-4e47-8808-6f35f57e85d7'),
+       ('166356b7-a33b-4b85-8d4a-db420050b6c5', 'c4fc3cfa-c7e9-48ed-8e05-bbc02f797829', '6b60ea5a-78c6-4e47-8808-6f35f57e85d7'),
+       ('6814b3a3-5b0c-4986-a266-265af9952550', '21378ada-9845-48b6-8be1-691279f06550', '90a311d4-b0dc-465b-98ae-9c4a37b712fb');
+
+-- Insertar datos de prueba en la tabla "assigned_permitions_to_rol"
+INSERT INTO assigned_permitions_to_rol (assigned_permitions_to_rol_id, role_id, permission_id)
+VALUES ('ac3715ed-ad13-40db-9c55-a79b1e17ab54', '6b60ea5a-78c6-4e47-8808-6f35f57e85d7', 'd9a65a9d-7183-4d3b-8a77-6331ee6b0c4d'),
+       ('894461dd-ea4b-47a4-8934-05f52ec9597a', '90a311d4-b0dc-465b-98ae-9c4a37b712fb', 'b9b80cbc-622a-453f-a8c5-d363104bd69d');
