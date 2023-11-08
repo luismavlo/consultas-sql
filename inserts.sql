@@ -67,3 +67,18 @@ VALUES ('582ff702-4bc1-4ecc-81c6-7fdeaf24f626', '3db9b8c5-deb0-4dc1-ac96-f464d7c
        ('7c269645-f381-43c2-8b17-437bee37bc22', '3db9b8c5-deb0-4dc1-ac96-f464d7c87020', 'photo2.jpg', 'Mascota 2', '2020-02-01', 'Raza 2', 'Especie 2'),
        ('45674882-b4e4-4be8-aa66-cad3471bda83', 'a73d962a-25e9-4ebc-8b44-1a9ee06202af', 'photo3.jpg', 'Mascota 3', '2020-03-01', 'Raza 3', 'Especie 3'),
        ('ed9cc695-aa05-4546-bde9-7e716189dd13', 'd9f6d433-7e12-416a-96a9-17c81bab5479', 'photo4.jpg', 'Mascota 4', '2020-04-01', 'Raza 4', 'Especie 4');
+
+-- Insertar datos de prueba en la tabla "has_medicine"
+INSERT INTO has_medicine (has_medicine_id, medicine_id, prescription_id, expedition_date, total_meditions)
+VALUES ('5a91bb99-de4f-46a5-bdbf-c022360bd902', '9f7549ed-7c34-4267-94b8-ee91e9b773ab', '56b15801-4236-4938-b663-1bc12fd54c2b', '2023-11-08 08:45:00', 10),
+       ('cf35b755-5c61-487e-84ef-789f44db154f', '8437916a-6d74-4ee3-b75d-4e87887813f3', 'f26d9316-0fa7-4c16-9595-8a128e818e93', '2023-11-08 09:15:00', 20);
+
+-- Insertar datos de prueba en la tabla "surgical_material"
+INSERT INTO surgical_material (surgical_material_id, barcode, description, medical_contraindications, observations)
+VALUES ('cb3f7f5d-a156-4a82-8e2f-66d29b8d44a2', '1234567890', 'Material quirúrgico 1', 'Contraindicaciones médicas 1', 'Observaciones 1'),
+       ('1eb7112c-3fd1-48c0-96d1-fb5c8d3c20cc', '0987654321', 'Material quirúrgico 2', 'Contraindicaciones médicas 2', 'Observaciones 2');
+
+-- Insertar datos de prueba en la tabla "complementary_exploration"
+INSERT INTO complementary_exploration (complementary_exploration_id, clinical_analysis_id, employee_id, finish_date, start_date, type_of_collection_tube, indications, origin, observations, interference, reference_values, technical_record, increase, decrease)
+VALUES ('61d6fe2b-afa5-4709-93bf-8b6109185852', '4477f100-e7a7-478c-a660-0c0b3d79c460', 'de0b3914-d05d-400d-804c-71ae2cfb0fac', '2023-11-08 08:45:00', '2023-11-08 08:30:00', 'tubo con heparina de litio', 'Indicaciones 1', 'Origen 1', 'Observaciones 1', 'Interferencia 1', 'Valores de referencia 1', 'Registro técnico 1', 1, 2),
+       ('f2a5f550-99be-4f83-af01-c234c4acb6ee', '7b214794-d6bb-4eda-8bb8-2ccaac4c7fc0', 'c4fc3cfa-c7e9-48ed-8e05-bbc02f797829', '2023-11-08 09:15:00', '2023-11-08 09:00:00', 'tubo sin anticoagulante', 'Indicaciones 2', 'Origen 2', 'Observaciones 2', 'Interferencia 2', 'Valores de referencia 2', 'Registro técnico 2', 3, 4);
