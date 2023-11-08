@@ -82,3 +82,38 @@ VALUES ('cb3f7f5d-a156-4a82-8e2f-66d29b8d44a2', '1234567890', 'Material quirúrg
 INSERT INTO complementary_exploration (complementary_exploration_id, clinical_analysis_id, employee_id, finish_date, start_date, type_of_collection_tube, indications, origin, observations, interference, reference_values, technical_record, increase, decrease)
 VALUES ('61d6fe2b-afa5-4709-93bf-8b6109185852', '4477f100-e7a7-478c-a660-0c0b3d79c460', 'de0b3914-d05d-400d-804c-71ae2cfb0fac', '2023-11-08 08:45:00', '2023-11-08 08:30:00', 'tubo con heparina de litio', 'Indicaciones 1', 'Origen 1', 'Observaciones 1', 'Interferencia 1', 'Valores de referencia 1', 'Registro técnico 1', 1, 2),
        ('f2a5f550-99be-4f83-af01-c234c4acb6ee', '7b214794-d6bb-4eda-8bb8-2ccaac4c7fc0', 'c4fc3cfa-c7e9-48ed-8e05-bbc02f797829', '2023-11-08 09:15:00', '2023-11-08 09:00:00', 'tubo sin anticoagulante', 'Indicaciones 2', 'Origen 2', 'Observaciones 2', 'Interferencia 2', 'Valores de referencia 2', 'Registro técnico 2', 3, 4);
+
+-- Insertar datos de prueba en la tabla "attend"
+INSERT INTO attend (attend_id, pet_id, employee_id, presumptive_diagnosis)
+VALUES ('85f64ca1-04c7-4057-a940-3bfa228e2748', '582ff702-4bc1-4ecc-81c6-7fdeaf24f626', 'de0b3914-d05d-400d-804c-71ae2cfb0fac', 'Diagnóstico presuntivo 1'),
+       ('d6b9e656-5c91-4980-802a-15ae0e331dcd', 'ed9cc695-aa05-4546-bde9-7e716189dd13', 'c4fc3cfa-c7e9-48ed-8e05-bbc02f797829', 'Diagnóstico presuntivo 2');
+
+-- Insertar datos de prueba en la tabla "interviene_surgically"
+INSERT INTO interviene_surgically (interviene_surgically_id, pet_id, employee_id, start_time, end_time, previous_elements, anesthic_procedure, possible_risks, complications, port_surgical_monitoring)
+VALUES ('2cbe5e66-270d-4519-90a4-93e09e16e3c8', '582ff702-4bc1-4ecc-81c6-7fdeaf24f626', 'c4fc3cfa-c7e9-48ed-8e05-bbc02f797829', '2023-11-08 08:45:00', '2023-11-08 09:15:00', 'Elementos previos 1', 'Procedimiento anestésico 1', 'Riesgos posibles 1', 'Complicaciones 1', 'Monitoreo portátil 1'),
+       ('642a2f35-7e36-44c3-b090-db7ef7470128', 'ed9cc695-aa05-4546-bde9-7e716189dd13', 'de0b3914-d05d-400d-804c-71ae2cfb0fac', '2023-11-08 09:45:00', '2023-11-08 10:15:00', 'Elementos previos 2', 'Procedimiento anestésico 2', 'Riesgos posibles 2', 'Complicaciones 2', 'Monitoreo portátil 2');
+
+-- Insertar datos de prueba en la tabla "used_material"
+INSERT INTO used_material (used_material_id, employee_id, surgical_material_id, amount, date)
+VALUES ('f4177df1-590a-4cdc-bf9b-085f0af7cfb4', 'de0b3914-d05d-400d-804c-71ae2cfb0fac', 'cb3f7f5d-a156-4a82-8e2f-66d29b8d44a2', 10.5, '2023-11-08 08:45:00'),
+       ('68fa6ab7-7455-4c0b-82d9-8f0970e40bd6', 'c4fc3cfa-c7e9-48ed-8e05-bbc02f797829', '1eb7112c-3fd1-48c0-96d1-fb5c8d3c20cc', 20.5, '2023-11-08 09:15:00');
+
+-- Insertar datos de prueba en la tabla "perform_analysis"
+INSERT INTO perform_analysis (perform_analysis_id, analysis_id, pet_id, consecutive_code, who_collected, observations, shopping_date, "procedure")
+VALUES ('7678946b-b9d0-47c6-bc18-3d8bace896a0', '2905b557-cd05-41e7-89a2-d125bf7d5b09', '582ff702-4bc1-4ecc-81c6-7fdeaf24f626', 1, 'Quién recolectó 1', 'Observaciones 1', '2023-11-08 08:45:00', 'Procedimiento 1'),
+       ('9b8a051c-14f9-4d91-8843-39775c00065d', '6bce2d5f-df2b-479a-ad51-249c5ee62485', 'ed9cc695-aa05-4546-bde9-7e716189dd13', 2, 'Quién recolectó 2', 'Observaciones 2', '2023-11-08 09:15:00', 'Procedimiento 2');
+
+-- Insertar datos de prueba en la tabla "vaccine"
+INSERT INTO vaccine (vaccine_id, vaccine_barcode, posible_reaction, observation)
+VALUES ('e3d8573c-b7ac-4bc8-bdf6-6051f9735c32', 'Código de barras 1', 'Reacción posible 1', 'Observación 1'),
+       ('8eed4e92-12e7-457d-8e3b-70d2f3d0b611', 'Código de barras 2', 'Reacción posible 2', 'Observación 2');
+
+-- Insertar datos de prueba en la tabla "vaccination_record"
+INSERT INTO vaccination_record (vaccination_record_id, vaccine_id, pet_id, date)
+VALUES ('7eb9391f-4ac3-4358-a295-9893de50ae00', 'e3d8573c-b7ac-4bc8-bdf6-6051f9735c32', '582ff702-4bc1-4ecc-81c6-7fdeaf24f626', '2023-11-08 08:45:00'),
+       ('3aa9ad29-3210-415b-8abb-5a7f34d65e58', '8eed4e92-12e7-457d-8e3b-70d2f3d0b611', 'ed9cc695-aa05-4546-bde9-7e716189dd13', '2023-11-08 09:15:00');
+       
+-- Insertar datos de prueba en la tabla "indicate"
+INSERT INTO indicate (indicate_id, analysis_id, employee_id, medical_code, reason, date)
+VALUES ('6c4de90c-a21d-4cb9-93f3-5698a1faa079', '2905b557-cd05-41e7-89a2-d125bf7d5b09', 'de0b3914-d05d-400d-804c-71ae2cfb0fac', 'Código médico 1', 'Razón 1', '2023-11-08 08:45:00'),
+       ('88e48e10-22b7-4c8e-a98f-15c54af4e13b', '6bce2d5f-df2b-479a-ad51-249c5ee62485', 'c4fc3cfa-c7e9-48ed-8e05-bbc02f797829', 'Código médico 2', 'Razón 2', '2023-11-08 09:15:00');
