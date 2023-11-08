@@ -46,6 +46,9 @@ VALUES ('9758da64-1484-4a08-9296-2cfa9eb43079', '12345678A', 'Juan', 'Pérez', '
        ('7418dbdb-b5b6-404a-b6ef-8842ca54fe77', '23456789B', 'María', 'García', 'femenino', '1995-02-01', 'Calle Falsa 456', 'photo2.jpg', true), -- user cliente
        ('e47a7602-8af6-46cf-bb83-97a62c1639bc', '34567890C', 'Pedro', 'González', 'masculino', '2000-03-01', 'Calle Falsa 789', 'photo3.jpg', true), --user medico y cliente
        ('6357388d-82bf-4dc6-a760-3aaf1c001e6c', '45678901D', 'Ana', 'Martínez', 'femenino', '2005-04-01', 'Calle Falsa 012', 'photo4.jpg', true); -- user medico
+       
+INSERT INTO "user" (user_id, dni, name, surname, genre, birthdate, address, photo, status)
+VALUES ('c106366f-6819-4771-88b3-3d1016bab84d', '45678505D', 'Karen', 'Rojas', 'femenino', '1995-04-01', 'Calle Falsa 013', 'photo5.jpg', true); -- user recepcionista
 
        
 -- Insertar datos de prueba en la tabla "client"
@@ -59,7 +62,7 @@ INSERT INTO employee (employee_id, labor_conditions, gross_salary, employment_co
 VALUES ('de0b3914-d05d-400d-804c-71ae2cfb0fac', 'Condiciones laborales 1', 50000.00, 'Código de empleo 1', 'employee1@example.com', 'password1', '555-555-5555', 'e47a7602-8af6-46cf-bb83-97a62c1639bc'),
        ('c4fc3cfa-c7e9-48ed-8e05-bbc02f797829', 'Condiciones laborales 2', 60000.00, 'Código de empleo 2', 'employee2@example.com', 'password2', '555-555-5555', '6357388d-82bf-4dc6-a760-3aaf1c001e6c');
 
-
+INSERT INTO employee (employee_id, labor_conditions, gross_salary, employment_code, email, password, phone, user_id) VALUES ('21378ada-9845-48b6-8be1-691279f06550', 'Condiciones laborales 1', 50000.00, 'Código de empleo 1', 'employee3@example.com', 'password3', '555-555-5525', 'c106366f-6819-4771-88b3-3d1016bab84d');
 
 -- Insertar datos de prueba en la tabla "pet"
 INSERT INTO pet (pet_id, client_id, photo, name, birthdate, race, specie)
@@ -117,3 +120,31 @@ VALUES ('7eb9391f-4ac3-4358-a295-9893de50ae00', 'e3d8573c-b7ac-4bc8-bdf6-6051f97
 INSERT INTO indicate (indicate_id, analysis_id, employee_id, medical_code, reason, date)
 VALUES ('6c4de90c-a21d-4cb9-93f3-5698a1faa079', '2905b557-cd05-41e7-89a2-d125bf7d5b09', 'de0b3914-d05d-400d-804c-71ae2cfb0fac', 'Código médico 1', 'Razón 1', '2023-11-08 08:45:00'),
        ('88e48e10-22b7-4c8e-a98f-15c54af4e13b', '6bce2d5f-df2b-479a-ad51-249c5ee62485', 'c4fc3cfa-c7e9-48ed-8e05-bbc02f797829', 'Código médico 2', 'Razón 2', '2023-11-08 09:15:00');
+
+INSERT INTO deliver (deliver_id, prescription_id, pet_id, prescription_date)
+VALUES ('5c89d625-25e7-4eda-945d-24cef7f8d3b9', '56b15801-4236-4938-b663-1bc12fd54c2b', '582ff702-4bc1-4ecc-81c6-7fdeaf24f626', '2023-11-08 08:45:00'),
+       ('1e61f487-4552-4d95-9b15-da0ae93093b9', 'f26d9316-0fa7-4c16-9595-8a128e818e93', 'ed9cc695-aa05-4546-bde9-7e716189dd13', '2023-11-08 09:15:00');
+       
+-- Insertar datos de prueba en la tabla "general_consultation_departament"
+INSERT INTO deparment (deparment_id, name, description, hours_of_operations, consultation_cost)
+VALUES ('836c768b-dd6e-4f19-b85e-aeac85e394e4', 'Departamento nombre 1', 'Descripción del departamento de consulta general 1', 'horario 1', 50.00);
+
+INSERT INTO deparment (deparment_id, name, description, hours_of_operations, consultation_cost)
+VALUES ('db223b55-b73d-4efe-b7de-5e87f7f5a8f3', 'Departamento nombre 2', 'Descripción del departamento de consulta general 2', 'horario 1', 60.00);
+
+
+-- Insertar datos de prueba en la tabla "general_consultation"
+INSERT INTO general_consultation (general_consultation_id, deparment_id, booking_date, blood_pressure, reason, pet_id, schenduling_by, assigned_to, heart_rate, observations, status, breathing_frequency, body_temperatura, history_clinic_url)
+VALUES ('a9523f6d-2f4e-4878-b823-fcd6a0050f8e', '836c768b-dd6e-4f19-b85e-aeac85e394e4', '2023-11-08 08:45:00', '120/80', 'Razón 1', '7c269645-f381-43c2-8b17-437bee37bc22', '21378ada-9845-48b6-8be1-691279f06550', 'de0b3914-d05d-400d-804c-71ae2cfb0fac', 70, 'Observaciones 1', 'completed', 20, 36, 'https://www.historiaclinica.com/paciente/1'),
+       ('90434e01-8fd6-4f2d-a304-44debd2f3edb', '836c768b-dd6e-4f19-b85e-aeac85e394e4', '2023-11-08 09:15:00', '130/90', 'Razón 2', 'ed9cc695-aa05-4546-bde9-7e716189dd13', '21378ada-9845-48b6-8be1-691279f06550', 'c4fc3cfa-c7e9-48ed-8e05-bbc02f797829', 80, 'Observaciones 2', 'pending', 25, 37, 'https://www.historiaclinica.com/paciente/2');
+
+-- Insertar datos de prueba en la tabla "do_image_test"
+INSERT INTO do_image_test (do_image_test_id, employee_id, image_test_id, finish_date, start_date, imaging_specialist_diagnostics, observations)
+VALUES ('3fbc2878-5af7-4b8d-a346-86898b535ca5', '21378ada-9845-48b6-8be1-691279f06550', 'b87122f1-fa4c-4bc4-b676-5fb8f1b6d5d1', '2023-11-08 08:45:00', '2023-11-08 08:30:00', 'Diagnóstico especialista en imágenes 1', 'Observaciones 1'),
+       ('e646b89c-28e6-4cb8-9bd2-56cf13378017', '21378ada-9845-48b6-8be1-691279f06550', 'd5376554-69e5-4d8c-8a9d-eee13b60a7d6', '2023-11-08 09:15:00', '2023-11-08 09:00:00', 'Diagnóstico especialista en imágenes 2', 'Observaciones 2');
+
+-- Insertar datos de prueba en la tabla "emergency"
+INSERT INTO emergency (emergency_id, emergency_departament_id, heart_rate, pet_id, breathing_recuency, reason, blood_pressure, assigned_to, body_temperatura, schenduling_by, status, history_clinic_url)
+VALUES ('f645eb97-41aa-43a5-b1c5-d7c51cb725c1', 'db223b55-b73d-4efe-b7de-5e87f7f5a8f3', 80, '582ff702-4bc1-4ecc-81c6-7fdeaf24f626', 20, 'Emergencia 1', '130/90', 'de0b3914-d05d-400d-804c-71ae2cfb0fac', 38, '21378ada-9845-48b6-8be1-691279f06550', 'active', 'https://www.historiaclinica.com/paciente/3'),
+       ('002dddf8-ffed-4ce3-8e3f-1d7543dee8dc', 'db223b55-b73d-4efe-b7de-5e87f7f5a8f3', 90, '45674882-b4e4-4be8-aa66-cad3471bda83', 25, 'Emergencia 2', '140/100', 'de0b3914-d05d-400d-804c-71ae2cfb0fac', 39, '21378ada-9845-48b6-8be1-691279f06550', 'completed', 'https://www.historiaclinica.com/paciente/4');
+       
